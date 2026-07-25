@@ -55,7 +55,7 @@ function handleSubmit() {
 
 <template>
   <section id="booktable" class="relative overflow-hidden bg-[#E5C287] py-20 sm:py-28">
-    <!-- Curvy top edge — kulay #FFF6A1 dahil yan ang background ng FranchisePackage section sa itaas nito -->
+    
     <svg
       class="absolute top-0 left-0 w-full h-16 sm:h-24 text-[#FFF6A1]"
       viewBox="0 0 1440 120"
@@ -68,7 +68,7 @@ function handleSubmit() {
       />
     </svg>
 
-    <!-- Curvy bottom edge — kulay #F5F5DC dahil yan ang background ng section sa ibaba nito -->
+    
     <svg
       class="absolute bottom-0 left-0 w-full h-16 sm:h-24 text-[#F5F5DC]"
       viewBox="0 0 1440 120"
@@ -81,7 +81,7 @@ function handleSubmit() {
       />
     </svg>
 
-    <!-- Curvy bottom edge — kulay #F5F5DC, palitan kung iba ang background ng ContactSection sa ibaba nito -->
+    
     <svg
       class="absolute bottom-0 left-0 w-full h-16 sm:h-24 text-[#F5F5DC]"
       viewBox="0 0 1440 120"
@@ -95,7 +95,7 @@ function handleSubmit() {
     </svg>
 
     <div class="relative z-10 mx-auto grid max-w-6xl grid-cols-1 items-center gap-14 px-5 sm:px-10 md:grid-cols-2">
-      <!-- decorative donut, left side -->
+   
       <div class="hidden md:flex relative justify-center" data-reveal>
         <div
           class="absolute inset-0 m-auto h-[85%] w-[85%] bg-[#FFF6A1] rounded-[42%_58%_65%_35%/45%_40%_60%_55%]"
@@ -109,7 +109,7 @@ function handleSubmit() {
         />
       </div>
 
-      <!-- booking card, right side -->
+     
       <div class="rounded-[2rem] bg-[#EFAE6C] p-8 sm:p-12 shadow-xl" data-reveal>
         <h2 class="text-center text-2xl sm:text-3xl font-bold text-white">Book a Table with us</h2>
         <p class="mt-2 text-center text-sm font-semibold text-white/90">@ Maja Pavilion Mall &mdash; Main Branch</p>

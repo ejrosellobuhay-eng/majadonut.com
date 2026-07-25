@@ -23,7 +23,7 @@ const menuBoards = [
 const prevEl = ref(null)
 const nextEl = ref(null)
 
-// scroll-triggered entrance for the decorative donuts
+
 const menuSectionEl = ref(null)
 const donutsInView = ref(false)
 let observer
@@ -52,7 +52,7 @@ onUnmounted(() => {
     ref="menuSectionEl"
     class="relative z-10 py-16 sm:py-20 bg-maja-bg scroll-mt-16"
   >
-    <!-- decorative donuts, bigger, no crop/background, allowed to bleed past the section -->
+    
     <img
       :src="'/d6.png'"
       alt=""
@@ -78,7 +78,7 @@ onUnmounted(() => {
       style="transition-delay: 300ms; --donut-rotate: -5deg;"
     />
 
-    <!-- decorative hand holding drink -->
+    
     <img
       :src="'/m8.png'"
       alt=""
@@ -142,7 +142,7 @@ onUnmounted(() => {
         </SwiperSlide>
       </Swiper>
 
-      <!-- custom arrows, positioned outside the carousel edge -->
+      
       <button
         ref="prevEl"
         type="button"
@@ -184,7 +184,7 @@ onUnmounted(() => {
   50% { transform: scale(1) rotate(var(--donut-rotate)) translateY(-14px); }
 }
 
-/* auto-dim + disable the arrows when there's nothing left to scroll to */
+
 .menu-nav-btn.swiper-button-disabled {
   opacity: 0.35;
   pointer-events: none;

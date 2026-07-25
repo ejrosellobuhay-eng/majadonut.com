@@ -8,7 +8,7 @@ const partyCartPdf = '/pdfs/kart.pdf'
 
 <template>
   <section class="relative overflow-hidden bg-[#FFF6A1] py-16 sm:py-20">
-    <!-- Curvy top edge — kulay maja-bg dahil yan din ang background ng MenuSection sa itaas nito, kaya smooth ang daloy pababa -->
+  
     <svg
       class="absolute top-0 left-0 w-full h-16 sm:h-24 text-maja-bg"
       viewBox="0 0 1440 120"
@@ -21,7 +21,7 @@ const partyCartPdf = '/pdfs/kart.pdf'
       />
     </svg>
 
-    <!-- Curvy bottom edge — puti dahil FaqAccordion (white bg) ang sumusunod na section -->
+    
     <svg
       class="absolute bottom-0 left-0 w-full h-16 sm:h-24 text-white"
       viewBox="0 0 1440 120"
