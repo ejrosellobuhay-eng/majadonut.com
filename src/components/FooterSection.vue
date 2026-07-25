@@ -36,7 +36,7 @@ const socials = [
     <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-5 py-14 sm:px-8 md:grid-cols-4">
       <div>
         <div class="flex items-center gap-2">
-          <img :src="logo" alt="Maja Café & Donuts logo" class="h-14 w-14 object-contain" />
+        <img :src="logo" alt="Maja Café & Donuts logo" class="h-25 w-24 object-contain" />
         </div>
         <p class="mt-4 text-sm leading-relaxed text-white/55">
           &rsquo; Experience the comforting taste of our Best Champorado and the irresistible goodness of Maja Donuts in every bite.

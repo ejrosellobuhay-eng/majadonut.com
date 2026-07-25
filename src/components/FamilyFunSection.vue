@@ -202,95 +202,139 @@ onUnmounted(() => {
     </div>
 
     <Teleport to="body">
-      <div
-        v-if="activeModal"
-        class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
-        @click.self="closeModal"
-      >
-        <div class="relative w-full max-w-2xl max-h-[85vh] bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col">
-          <button
-            type="button"
-            @click="closeModal"
-            aria-label="Close"
-            class="absolute top-3 right-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-black/60 hover:bg-white hover:text-black transition-colors"
-          >
-            &#10005;
-          </button>
+      <Transition name="backdrop">
+        <div
+          v-if="activeModal"
+          class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
+          @click.self="closeModal"
+        >
+          <Transition name="panel">
+            <div
+              v-if="activeModal"
+              class="relative w-full max-w-2xl max-h-[85vh] bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col will-change-transform"
+            >
+              <button
+                type="button"
+                @click="closeModal"
+                aria-label="Close"
+                class="absolute top-3 right-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-black/60 hover:bg-white hover:text-black transition-colors"
+              >
+                &#10005;
+              </button>
 
-          <div class="overflow-y-auto">
-            <img
-              v-if="activeModal.image"
-              :src="activeModal.image"
-              :alt="activeModal.title"
-              class="w-full h-48 sm:h-56 object-cover"
-            />
+              <div class="overflow-y-auto">
+                <img
+                  v-if="activeModal.image"
+                  :src="activeModal.image"
+                  :alt="activeModal.title"
+                  class="w-full h-48 sm:h-56 object-cover"
+                />
 
-            <div class="p-6 sm:p-8">
-              <h3 class="text-2xl sm:text-3xl font-bold text-black">
-                {{ activeModal.title }}
-              </h3>
-              <p v-if="activeModal.tagline" class="mt-1 text-maja-orange font-medium">
-                {{ activeModal.tagline }}
-              </p>
-
-              <!-- Multi-workshop layout (Kid's Takeover + Teen Barista) -->
-              <template v-if="activeModal.workshops">
-                <div
-                  v-for="(workshop, index) in activeModal.workshops"
-                  :key="workshop.name"
-                  :class="['pt-6', index > 0 ? 'mt-6 border-t border-black/10' : 'mt-4']"
-                >
-                  <h4 class="text-lg font-bold text-black">{{ workshop.name }}</h4>
-                  <p class="text-sm text-maja-orange font-medium">{{ workshop.subtitle }}</p>
-
-                  <div v-for="section in workshop.sections" :key="section.heading" class="mt-4">
-                    <h5 class="font-semibold text-black text-sm">{{ section.heading }}</h5>
-                    <ul class="mt-2 space-y-1.5 text-black/70 text-sm leading-relaxed list-disc list-inside">
-                      <li v-for="item in section.items" :key="item">{{ item }}</li>
-                    </ul>
-                  </div>
-
-                  <div class="mt-4 rounded-xl bg-maja-orange/10 px-4 py-3">
-                    <p class="font-semibold text-maja-orange text-sm">{{ workshop.fee }}</p>
-                  </div>
-
-                  <p v-if="workshop.note" class="mt-3 text-xs text-black/50 leading-relaxed">
-                    {{ workshop.note }}
+                <div class="p-6 sm:p-8">
+                  <h3 class="text-2xl sm:text-3xl font-bold text-black">
+                    {{ activeModal.title }}
+                  </h3>
+                  <p v-if="activeModal.tagline" class="mt-1 text-maja-orange font-medium">
+                    {{ activeModal.tagline }}
                   </p>
-                </div>
-              </template>
 
-              <!-- Single content layout (Party Cart) -->
-              <template v-else>
-                <div v-for="section in activeModal.sections" :key="section.heading" class="mt-5">
-                  <h4 class="font-semibold text-black">{{ section.heading }}</h4>
-                  <ul class="mt-2 space-y-1.5 text-black/70 text-sm leading-relaxed list-disc list-inside">
-                    <li v-for="item in section.items" :key="item">{{ item }}</li>
-                  </ul>
-                </div>
+                 
+                  <template v-if="activeModal.workshops">
+                    <div
+                      v-for="(workshop, index) in activeModal.workshops"
+                      :key="workshop.name"
+                      :class="['pt-6', index > 0 ? 'mt-6 border-t border-black/10' : 'mt-4']"
+                    >
+                      <h4 class="text-lg font-bold text-black">{{ workshop.name }}</h4>
+                      <p class="text-sm text-maja-orange font-medium">{{ workshop.subtitle }}</p>
 
-                <div v-if="activeModal.menu" class="mt-5">
-                  <h4 class="font-semibold text-black">Menu</h4>
-                  <div class="mt-2 space-y-3">
-                    <div v-for="entry in activeModal.menu" :key="entry.tier">
-                      <p class="text-sm font-medium text-black">{{ entry.tier }}</p>
-                      <p class="text-sm text-black/60">{{ entry.flavors }}</p>
+                      <div v-for="section in workshop.sections" :key="section.heading" class="mt-4">
+                        <h5 class="font-semibold text-black text-sm">{{ section.heading }}</h5>
+                        <ul class="mt-2 space-y-1.5 text-black/70 text-sm leading-relaxed list-disc list-inside">
+                          <li v-for="item in section.items" :key="item">{{ item }}</li>
+                        </ul>
+                      </div>
+
+                      <div class="mt-4 rounded-xl bg-maja-orange/10 px-4 py-3">
+                        <p class="font-semibold text-maja-orange text-sm">{{ workshop.fee }}</p>
+                      </div>
+
+                      <p v-if="workshop.note" class="mt-3 text-xs text-black/50 leading-relaxed">
+                        {{ workshop.note }}
+                      </p>
                     </div>
-                  </div>
-                </div>
+                  </template>
 
-                <div class="mt-6 rounded-xl bg-maja-orange/10 px-4 py-3">
-                  <p class="font-semibold text-maja-orange">{{ activeModal.fee }}</p>
-                </div>
+                 
+                  <template v-else>
+                    <div v-for="section in activeModal.sections" :key="section.heading" class="mt-5">
+                      <h4 class="font-semibold text-black">{{ section.heading }}</h4>
+                      <ul class="mt-2 space-y-1.5 text-black/70 text-sm leading-relaxed list-disc list-inside">
+                        <li v-for="item in section.items" :key="item">{{ item }}</li>
+                      </ul>
+                    </div>
 
-                <p v-if="activeModal.note" class="mt-4 text-xs text-black/50 leading-relaxed">
-                  {{ activeModal.note }}
-                </p>
-              </template>
+                    <div v-if="activeModal.menu" class="mt-5">
+                      <h4 class="font-semibold text-black">Menu</h4>
+                      <div class="mt-2 space-y-3">
+                        <div v-for="entry in activeModal.menu" :key="entry.tier">
+                          <p class="text-sm font-medium text-black">{{ entry.tier }}</p>
+                          <p class="text-sm text-black/60">{{ entry.flavors }}</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mt-6 rounded-xl bg-maja-orange/10 px-4 py-3">
+                      <p class="font-semibold text-maja-orange">{{ activeModal.fee }}</p>
+                    </div>
+
+                    <p v-if="activeModal.note" class="mt-4 text-xs text-black/50 leading-relaxed">
+                      {{ activeModal.note }}
+                    </p>
+                  </template>
+                </div>
+              </div>
             </div>
-          </div>
+          </Transition>
         </div>
-      </div>
+      </Transition>
     </Teleport>
   </section>
 </template>
+
+<style scoped>
+.backdrop-enter-active,
+.backdrop-leave-active {
+  transition: opacity 1s ease;
+}
+.backdrop-enter-from,
+.backdrop-leave-to {
+  opacity: 0;
+}
+
+.panel-enter-active {
+  animation: panel-pop 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.panel-leave-active {
+  transition: opacity 1s ease, transform 1s cubic-bezier(0.4, 0, 1, 1);
+}
+.panel-leave-to {
+  opacity: 0;
+  transform: scale(0.95) translateY(8px);
+}
+
+@keyframes panel-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.85) translateY(24px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.02) translateY(-4px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+</style>
