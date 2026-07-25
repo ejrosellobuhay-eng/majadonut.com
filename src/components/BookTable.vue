@@ -11,11 +11,11 @@ const bookingDate = ref('')
 const bookingTime = ref('')
 const guests = ref('')
 
-// bukas lang ang store 10:00 AM - 9:00 PM
+
 const STORE_OPEN = '10:00'
 const STORE_CLOSE = '21:00'
 
-// hindi pwedeng mag-book ng petsang lumipas na
+
 const todayStr = computed(() => {
   const d = new Date()
   const yyyy = d.getFullYear()
@@ -24,7 +24,7 @@ const todayStr = computed(() => {
   return `${yyyy}-${mm}-${dd}`
 })
 
-// numbers lang, max 10 digits
+
 function onContactInput(e) {
   const digitsOnly = e.target.value.replace(/\D/g, '').slice(0, 10)
   contactNumber.value = digitsOnly

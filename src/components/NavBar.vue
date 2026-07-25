@@ -35,12 +35,12 @@ onUnmounted(() => {
 
 <template>
   <header :class="['fixed top-0 inset-x-0 z-50 transition-colors duration-300', isScrolled ? 'bg-white shadow-md' : 'bg-transparent shadow-none']">
-    <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 sm:px-12 py-5" aria-label="Main navigation">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-12 py-3 sm:py-5" aria-label="Main navigation">
       <a href="#home" class="flex items-center gap-3 shrink-0" @click="closeMenu">
-        <img :src="logo" alt="Maja Café & Donuts logo" class="h-20 w-20 sm:h-24 sm:w-24 object-contain" />
+        <img :src="logo" alt="Maja Café & Donuts logo" class="h-14 w-14 sm:h-20 sm:w-20 md:h-24 md:w-24 object-contain" />
       </a>
 
-      <ul class="hidden md:flex items-center gap-12">
+      <ul class="hidden md:flex items-center gap-6">
         <li v-for="link in links" :key="link.id">
           <a
             :href="`#${link.id}`"
@@ -54,7 +54,7 @@ onUnmounted(() => {
 
       <button
         type="button"
-        class="md:hidden flex h-10 w-10 flex-col items-center justify-center gap-1.5"
+        class="md:hidden flex h-9 w-9 sm:h-10 sm:w-10 flex-col items-center justify-center gap-1.5"
         :aria-expanded="isOpen"
         aria-controls="mobile-menu"
         aria-label="Toggle navigation menu"
@@ -74,7 +74,7 @@ onUnmounted(() => {
 
     <!-- Mobile backdrop -->
     <Transition name="fade">
-      <div v-if="isOpen" class="fixed inset-0 top-[64px] z-40 bg-black/40 md:hidden" @click="closeMenu" />
+      <div v-if="isOpen" class="fixed inset-0 top-14 md:top-16 z-40 bg-black/40 md:hidden" @click="closeMenu" />
     </Transition>
 
     <!-- Mobile menu -->
@@ -82,7 +82,7 @@ onUnmounted(() => {
       <div
         v-if="isOpen"
         id="mobile-menu"
-        class="md:hidden fixed top-[64px] inset-x-0 z-40 bg-white shadow-lg border-t border-black/5"
+        class="md:hidden fixed top-14 md:top-16 inset-x-0 z-40 bg-white shadow-lg border-t border-black/5"
       >
         <ul class="flex flex-col px-6 py-4 gap-1">
           <li v-for="link in links" :key="link.id">

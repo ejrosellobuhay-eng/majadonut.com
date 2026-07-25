@@ -30,7 +30,7 @@ const socials = [
 
 <template>
   <footer class="relative bg-[#1a1210] text-white">
-    <!-- Orange accent line -->
+  
     <div class="h-[3px] w-full bg-gradient-to-r from-maja-orange/0 via-maja-orange to-maja-orange/0" aria-hidden="true" />
 
     <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-5 py-14 sm:px-8 md:grid-cols-4">
