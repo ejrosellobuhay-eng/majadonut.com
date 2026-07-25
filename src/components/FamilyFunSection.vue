@@ -305,7 +305,7 @@ onUnmounted(() => {
 <style scoped>
 .backdrop-enter-active,
 .backdrop-leave-active {
-  transition: opacity 1s ease;
+  transition: opacity 0.3s ease;
 }
 .backdrop-enter-from,
 .backdrop-leave-to {
@@ -313,10 +313,10 @@ onUnmounted(() => {
 }
 
 .panel-enter-active {
-  animation: panel-pop 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: panel-pop 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .panel-leave-active {
-  transition: opacity 1s ease, transform 1s cubic-bezier(0.4, 0, 1, 1);
+  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.4, 0, 1, 1);
 }
 .panel-leave-to {
   opacity: 0;
@@ -326,11 +326,11 @@ onUnmounted(() => {
 @keyframes panel-pop {
   0% {
     opacity: 0;
-    transform: scale(0.85) translateY(24px);
+    transform: scale(0.9) translateY(20px);
   }
-  60% {
+  70% {
     opacity: 1;
-    transform: scale(1.02) translateY(-4px);
+    transform: scale(1.015) translateY(-2px);
   }
   100% {
     opacity: 1;

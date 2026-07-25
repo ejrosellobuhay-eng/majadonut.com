@@ -29,14 +29,15 @@ const socials = [
 </script>
 
 <template>
-  <footer class="relative bg-[#1a1210] text-white">
-  
+  <footer class="relative overflow-hidden bg-[#1a1210] text-white">
+
     <div class="h-[3px] w-full bg-gradient-to-r from-maja-orange/0 via-maja-orange to-maja-orange/0" aria-hidden="true" />
 
-    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-5 py-14 sm:px-8 md:grid-cols-4">
+    <div class="mx-auto grid max-w-7xl grid-cols-1 items-start gap-10 px-5 py-14 sm:px-8 md:grid-cols-4">
       <div>
-        <div class="flex items-center gap-2">
-        <img :src="logo" alt="Maja Café & Donuts logo" class="h-25 w-24 object-contain" />
+    
+        <div class="mt-4 flex items-center gap-2">
+          <img :src="logo" alt="Maja Café & Donuts logo" class="h-9 w-auto object-contain" />
         </div>
         <p class="mt-4 text-sm leading-relaxed text-white/55">
           &rsquo; Experience the comforting taste of our Best Champorado and the irresistible goodness of Maja Donuts in every bite.
@@ -72,6 +73,7 @@ const socials = [
         <ul class="mt-4 space-y-1 text-sm text-white/70">
           <li>Monday&ndash;Sunday: <br />10:00 AM &ndash; 9:00 PM</li>
         </ul>
+
         <div class="mt-5 flex gap-3">
           <a
             v-for="s in socials"
